@@ -1,15 +1,29 @@
 <div class="main-content">
 
+  <!-- Container of Space Search and Filter -->
   <div class="main-content__searchFilter">
+
+    <!-- Space search -->
     <div class="search">
+
+      <!-- Icon of search -->
       <span class="material-icons">search</span>
+
+      <!-- Field search -->
       <input type="text" name="countryName" id="countryName" placeholder="Search for a country...">
     </div>
 
+
+    <!-- Block Filter by region -->
     <div class="regionFilter">
       <ul>
         <li>
-          Filter by Region
+          <div>
+            <span (click)="displayMenu()" >Filter by Region</span>
+            <span class="material-icons">
+              keyboard_arrow_down
+            </span>
+          </div>
           <ul class="sub-menu">
             <li>Africa</li>
             <li>America</li>
@@ -22,8 +36,21 @@
     </div>
   </div>
 
+  <!-- Lists of full country -->
   <div class="main-content__countries">
+    <div class="countries-card" *ngFor="let country of countries">
+      <div class="countries-card__img">
+        <img [src]="country.flags.png" alt="flag-{{ country.name.common }}">
+      </div>
 
+      <h2>{{ country.name.common }}</h2>
+
+      <p>Population: {{ country.population }}</p>
+
+      <p>Region: {{ country.region }}</p>
+
+      <p>Capital: {{  country.capital}}</p>
+    </div>
   </div>
 
 </div>
