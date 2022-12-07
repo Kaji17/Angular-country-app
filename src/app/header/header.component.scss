@@ -1,0 +1,17 @@
+header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: hsl(209, 23%, 22%);
+  color: white;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  >div{
+    display: flex;
+    align-items: center;
+    >span{
+      cursor: pointer;
+      margin-right: 1rem;
+    }
+  }
+}
