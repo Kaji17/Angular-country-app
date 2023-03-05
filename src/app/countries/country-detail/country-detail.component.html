@@ -36,6 +36,12 @@
             </span>
         </div>
       </div>
+      <div class="payVoisin">
+        <span>Border Country:</span>
+        <div class="border" *ngFor="let pays of countryv2.borders">
+          {{getBorderCountry(pays)}}
+        </div>
+      </div>
     </div>
   </main>
 </div>

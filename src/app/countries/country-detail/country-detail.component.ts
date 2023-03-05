@@ -14,7 +14,9 @@ export class CountryDetailComponent implements OnInit {
   public countries!: any
   public countryv2!: any
   public codeCountry!: string
+  public countryListT!: any[]
   public currencieTab!: any
+  public BorderCountryList!: any[]
   constructor( 
     private countryList: CountryListService,
     private route: ActivatedRoute,
@@ -25,6 +27,7 @@ export class CountryDetailComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id')!;
     console.log(id);
     this.countryList.getCountries().subscribe((countries: any[])=>{
+      this.countryListT = countries
       this.countries = countries.find(country1=> country1.name.common === id)!;
       this.codeCountry = this.countries.cca3
       console.log(this.codeCountry)
@@ -34,12 +37,16 @@ export class CountryDetailComponent implements OnInit {
       this.countryv2 = countries.find(country1=> country1.alpha3Code === this.countries.cca3)!;
       console.log("payv2:",this.countryv2)
     });
-    // this.currencieTab =JSON.parse(this.countryv2.currencies)
-    // console.log("Tab:",this.currencieTab)
+    
   }
 
   public backToList(): void{
     this.router.navigate(['/hotels']);
+  }
+
+  public getBorderCountry(code:string): string{
+    let country = this.countryListT.find(country1 => country1.cca3 === code)!
+    return country.name.common
   }
 
 
