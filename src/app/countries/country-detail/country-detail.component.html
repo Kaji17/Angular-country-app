@@ -1,4 +1,5 @@
 <div class="detail">
+  <!-- Button de retour vers la liste des pays -->
   <button type="button" (click)="backToList()" class="bg-blue-ligth dropdown">
     <span class="material-icons">
       keyboard_backspace
@@ -6,12 +7,16 @@
     Back
   </button>
 
+  <!-- Detail du pays  -->
   <main>
+    <!-- Images du pays  -->
     <div>
       <img [src]="countries.flags.png" alt="image-{{countries.name.common}}" srcset="" class="img">
     </div>
 
+    <!-- Info du pays  -->
     <div class="descript">
+      <!-- Le nom commun du pays -->
       <div class="title-name">
         <h2>{{countries.name.common}}</h2>
       </div>
@@ -39,6 +44,7 @@
       <div class="payVoisin">
         <span>Border Country:</span>
         <div class="border bg-blue-ligth dropdown" *ngFor="let pays of countryv2.borders">
+          <!-- Renvoie le nom du pays en fonction du code alpha3 passer en paramètre -->
           {{getBorderCountry(pays)}}
         </div>
       </div>

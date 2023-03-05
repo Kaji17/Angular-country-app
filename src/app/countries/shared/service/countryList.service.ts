@@ -11,6 +11,7 @@ export class CountryListService {
   private readonly COUNTRY_API_URLV2= " https://restcountries.com/v2/all";
   constructor(private http: HttpClient){}
 
+  // Récupération de la liste des pays de la version 3
   public getCountries(): Observable<any[]>{
 
     return this.http.get<any[]>(this.COUNTRY_API_URL).pipe(
@@ -19,6 +20,7 @@ export class CountryListService {
     )
   }
 
+  // Récupération de la liste des pays de la version 2
   public getCountriesByCode():Observable<any[]>{
     return this.http.get<any[]>(this.COUNTRY_API_URLV2).pipe(
       tap(country2 => console.log("country:", country2)),
@@ -26,13 +28,12 @@ export class CountryListService {
     )
   }
 
-
-
+  // Récupération du theme-color sauvegarder dans le localStorage 
   public getStoredTheme():string{
     return localStorage.getItem('theme-color')!;
   }
 
-
+// sauvegarder le theme-color  dans le localStorage 
   public setStoredTheme(theme: string):void{
     localStorage.setItem('theme-color', theme)!;
   }
