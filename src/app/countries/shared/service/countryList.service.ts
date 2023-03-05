@@ -8,6 +8,7 @@ import { catchError, Observable, tap, throwError } from "rxjs";
 
 export class CountryListService {
   private readonly COUNTRY_API_URL= "https://restcountries.com/v3.1/all";
+  private readonly COUNTRY_API_URLV2= " https://restcountries.com/v2/all";
   constructor(private http: HttpClient){}
 
   public getCountries(): Observable<any[]>{
@@ -16,6 +17,24 @@ export class CountryListService {
       tap(countries => console.log("countries:", countries)),
       catchError(this.handleError)
     )
+  }
+
+  public getCountriesByCode():Observable<any[]>{
+    return this.http.get<any[]>(this.COUNTRY_API_URLV2).pipe(
+      tap(country2 => console.log("country:", country2)),
+       catchError(this.handleError)
+    )
+  }
+
+
+
+  public getStoredTheme():string{
+    return localStorage.getItem('theme-color')!;
+  }
+
+
+  public setStoredTheme(theme: string):void{
+    localStorage.setItem('theme-color', theme)!;
   }
   
   private handleError(error: HttpErrorResponse) {

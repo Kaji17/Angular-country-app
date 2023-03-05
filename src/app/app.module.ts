@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
+
 import { CountryListComponent } from './countries/country-list/country-list.component';
 import { CountryDetailComponent } from './countries/country-detail/country-detail.component';
-import { DarkLigthModeComponent } from './shared/component/dark-ligth-mode/dark-ligth-mode.component';
+import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,12 +16,12 @@ import { DarkLigthModeComponent } from './shared/component/dark-ligth-mode/dark-
     HeaderComponent,
     CountryListComponent,
     CountryDetailComponent,
-    DarkLigthModeComponent
-
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

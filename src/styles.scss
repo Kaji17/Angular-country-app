@@ -1,7 +1,12 @@
 @import "~material-icons/iconfont/material-icons.css";
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&family=Open+Sans:wght@400;700&family=Space+Grotesk:wght@500&display=swap');
+
+//theme-dark
+$bg-theme-black:hsl(207, 26%, 17);
+$bg-theme-white:  hsl(0, 0%, 100%);
+$bg-grey:hsl(0, 0%, 98%);
 body{
   margin: 0px;
-  background-color: hsl(207, 26%, 17);
+  background-color:$bg-grey;
   font-family: 'Nunito Sans', sans-serif;
 }

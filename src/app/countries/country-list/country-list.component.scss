@@ -1,12 +1,24 @@
+$bg-theme-black: hsl(207, 26%, 17%);
+
+$bg-theme-black-ligth: hsl(209, 23%, 22%);
+
+$bg-theme-white: hsl(0, 0%, 100%);
+
+$txt-white: hsl(0, 0%, 100%);
+
+$bg-grey: hsl(0, 0%, 98%);
+
 .main-content {
   display: block;
-  margin-top: 2rem;
-  margin-left: 4rem;
-  margin-right: 4rem;
+  padding-top: 2rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  background-color: $bg-theme-black;
+
   &__searchFilter {
     display: flex;
     justify-content: space-between;
-   
+
 
     >.search {
       position: relative;
@@ -15,12 +27,16 @@
 
       >span {
         position: absolute;
-        color: white;
+        color: $txt-white;
         left: 1rem;
       }
 
+      >span.theme-light {
+        color: $bg-theme-black;
+      }
+
       >input {
-        background-color: hsl(209, 23%, 22%);
+        background-color: $bg-theme-black-ligth;
         padding-left: 3rem;
         width: 17rem;
         height: 2.5rem;
@@ -32,24 +48,44 @@
           color: white;
         }
       }
+
+      >input.theme-light {
+        background-color: $bg-theme-white;
+        color: $bg-theme-black;
+
+        &::placeholder {
+          color: $bg-theme-black;
+        }
+      }
     }
 
     >.regionFilter {
       cursor: pointer;
       display: flex;
       align-items: center;
-      background-color: hsl(209, 23%, 22%);
       width: 14rem;
       height: 2.5rem;
       border: 0px;
       border-radius: 5px;
       color: white;
+      background-color: $bg-theme-black-ligth;
+
       &:hover {
         .sub-menu {
           display: block;
           margin-top: 1rem;
           padding-left: 1rem;
           width: 13rem;
+
+          li:hover {
+            background-color: hsl(208, 10%, 30%);
+          }
+        }
+
+        .sub-menu.theme-light {
+          li:hover {
+            background-color: hsl(208, 10%, 30%);
+          }
         }
       }
 
@@ -59,17 +95,19 @@
         width: 100%;
 
         li {
-         >div{
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          >:first-child {
-            padding-left: 1rem;
+          >div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            >:first-child {
+              padding-left: 1rem;
+            }
+
+            >:last-child {
+              padding-right: 1rem;
+            }
           }
-          >:last-child{
-            padding-right: 1rem;
-          }
-         }
         }
       }
 
@@ -78,13 +116,20 @@
         position: relative;
       }
     }
+
+    >.regionFilter.theme-light {
+      background-color: $bg-theme-white;
+      color: $bg-theme-black;
+    }
   }
-  &__countries{
+
+  &__countries {
     color: white;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     row-gap: 3rem;
+    column-gap: 1rem;
     margin-top: 3rem;
 
   }
@@ -93,29 +138,90 @@
 .sub-menu {
   position: absolute;
   display: none;
-  background-color: hsl(209, 23%, 22%);
+  background-color: $bg-theme-black-ligth;
 
   border-radius: 5px;
-  li{
+
+  li {
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
   }
 }
-.countries-card{
+
+.sub-menu.theme-light {
+  background-color: $bg-theme-white;
+}
+
+.countries-card {
   max-width: 16rem;
-  background-color: hsl(209, 23%, 22%);
+  background-color: $bg-theme-black-ligth;
   border-radius: 5px;
-  &__img{
-    >img{
+
+  &__img {
+    >img {
       border-radius: 5px;
       width: 16rem;
       height: 10rem;
     }
   }
-  >p{
+
+  >p {
     margin-left: 1rem;
   }
-  >h2{
+
+  >h2 {
     margin-left: 1rem;
+  }
+}
+
+
+.main-content.theme-light{
+  background-color: $bg-grey;
+}
+
+
+.countries-card.theme-light {
+  background-color: $bg-theme-white;
+  color: $bg-theme-black;
+}
+
+.dropdown {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (max-width:722px) {
+  .main-content {
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+    &__searchFilter {
+      flex-direction: column;
+      row-gap: 2rem;
+
+      >.search {
+        >input {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:565px) {
+  .main-content {
+    &__countries {
+      justify-content: center;
+
+      .countries-card {
+        max-width: 92%;
+
+        &__img {
+          >img {
+            width: 100%;
+            height: 14rem;
+          }
+        }
+      }
+    }
   }
 }

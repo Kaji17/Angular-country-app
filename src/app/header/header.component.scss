@@ -1,9 +1,17 @@
+$bg-theme-black:hsl(207, 26%, 17%);
+
+$bg-theme-black-ligth:hsl(209, 23%, 22%);
+
+$bg-theme-white:  hsl(0, 0%, 100%);
+
+$txt-white:hsl(0, 0%, 100%);
+
 header{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: hsl(209, 23%, 22%);
-  color: white;
+  background-color: $bg-theme-black-ligth;
+  color: $txt-white;
   padding-left: 4rem;
   padding-right: 4rem;
   >div{
@@ -12,6 +20,23 @@ header{
     >span{
       cursor: pointer;
       margin-right: 1rem;
+    }
+  }
+}
+
+header.theme-white{
+  background-color: $bg-theme-white;
+  color: $bg-theme-black;
+}
+.dropdown{
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+@media screen and (max-width:425px){
+  header{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    h2{
+      font-size: 19px
     }
   }
 }

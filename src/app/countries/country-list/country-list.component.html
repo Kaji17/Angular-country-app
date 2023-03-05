@@ -1,35 +1,37 @@
-<div class="main-content">
+<div class="main-content " [ngClass]="storedTheme === 'theme-light'?'theme-light':''">
 
   <!-- Container of Space Search and Filter -->
-  <div class="main-content__searchFilter">
+  <div class="main-content__searchFilter ">
 
     <!-- Space search -->
     <div class="search">
 
       <!-- Icon of search -->
-      <span class="material-icons">search</span>
+      <span class="material-icons"  [ngClass]="storedTheme === 'theme-light'?'theme-light':''">search</span>
 
       <!-- Field search -->
-      <input type="text" name="countryName" id="countryName" placeholder="Search for a country...">
+      <input type="text" name="countryName" 
+      [(ngModel)]="countryFilter" id="countryName" 
+      placeholder="Search for a country..." 
+      class="dropdown" [ngClass]="storedTheme === 'theme-light'?'theme-light':''">
     </div>
-
-
     <!-- Block Filter by region -->
-    <div class="regionFilter">
+    <div class="regionFilter dropdown" [ngClass]="storedTheme === 'theme-light'?'theme-light':''">
       <ul>
         <li>
           <div>
-            <span (click)="displayMenu()" >Filter by Region</span>
+            <span>Filter by Region</span>
             <span class="material-icons">
               keyboard_arrow_down
             </span>
           </div>
-          <ul class="sub-menu">
-            <li>Africa</li>
-            <li>America</li>
-            <li>Asia</li>
-            <li>Europe</li>
-            <li>Oceania</li>
+          <ul class="sub-menu" [ngClass]="storedTheme === 'theme-light'?'theme-light':''">
+            <li (click)="AllFilter()">All</li>
+            <li (click)="AfricaFilter()">Africa</li>
+            <li (click)="AmericaFilter()">America</li>
+            <li (click)="AsiaFilter()">Asia</li>
+            <li (click)="EuropeFilter()">Europe</li>
+            <li (click)="OceaniaFilter()">Oceania</li>
           </ul>
         </li>
       </ul>
@@ -38,9 +40,9 @@
 
   <!-- Lists of full country -->
   <div class="main-content__countries">
-    <div class="countries-card" *ngFor="let country of countries">
+    <div [routerLink]="['/countries', country.name.common]" class="countries-card dropdown" *ngFor="let country of countryFilterList"[ngClass]="storedTheme === 'theme-light'?'theme-light':''">
       <div class="countries-card__img">
-        <img [src]="country.flags.png" alt="flag-{{ country.name.common }}">
+        <img [src]="country.flags.png" alt="flag-{{ country.name.common }}" >
       </div>
 
       <h2>{{ country.name.common }}</h2>

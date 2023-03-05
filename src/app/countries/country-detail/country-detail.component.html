@@ -1,1 +1,41 @@
-<p>country-detail works!</p>
+<div class="detail">
+  <button type="button" (click)="backToList()" class="buttonback">
+    <span class="material-icons">
+      keyboard_backspace
+    </span>
+    Back
+  </button>
+
+  <main>
+    <div>
+      <img [src]="countries.flags.png" alt="image-{{countries.name.common}}" srcset="" class="img">
+    </div>
+
+    <div class="descript">
+      <div class="title-name">
+        <h2>{{countries.name.common}}</h2>
+      </div>
+      <div class="carctcountry">
+        <div class="firstpart">
+          <p><span>Native Name: </span> {{countries.name.official}}</p>
+          <p><span>Population: </span> {{countries.population}}</p>
+          <p><span>Region: </span> {{countries.region}}</p>
+          <p><span>Sub Region: </span>{{countries.subregion}}</p>
+          <p><span>Capital: </span> {{countries.capital}}</p>
+        </div>
+        <div class="secondpart">
+          <p><span>Top Level Domain: </span> {{countries.tld}}</p>
+          <p>
+            <span>Currencies: </span>
+            {{countryv2.currencies[0].name}}
+          </p>
+          <p>
+            <span>Languages: </span>
+            <span *ngFor="let i of countryv2.languages">
+              {{i.name}}
+            </span>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
