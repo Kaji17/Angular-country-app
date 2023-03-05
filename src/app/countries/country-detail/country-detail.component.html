@@ -1,5 +1,5 @@
 <div class="detail">
-  <button type="button" (click)="backToList()" class="buttonback dropdown">
+  <button type="button" (click)="backToList()" class="bg-blue-ligth dropdown">
     <span class="material-icons">
       keyboard_backspace
     </span>
@@ -18,7 +18,7 @@
       <div class="carctcountry">
         <div class="firstpart">
           <p><span>Native Name: </span> {{countries.name.official}}</p>
-          <p><span>Population: </span> {{countries.population}}</p>
+          <p><span>Population: </span> {{countries.population| number}}</p>
           <p><span>Region: </span> {{countries.region}}</p>
           <p><span>Sub Region: </span>{{countries.subregion}}</p>
           <p><span>Capital: </span> {{countries.capital}}</p>
@@ -29,16 +29,16 @@
             <span>Currencies: </span>
             {{countryv2.currencies[0].name}}
           </p>
-          <p>
+          <p class="lang">
             <span>Languages: </span>
-            <span *ngFor="let i of countryv2.languages">
+            <div *ngFor="let i of countryv2.languages">
               {{i.name}}
-            </span>
+            </div>
         </div>
       </div>
       <div class="payVoisin">
         <span>Border Country:</span>
-        <div class="border" *ngFor="let pays of countryv2.borders">
+        <div class="border bg-blue-ligth dropdown" *ngFor="let pays of countryv2.borders">
           {{getBorderCountry(pays)}}
         </div>
       </div>

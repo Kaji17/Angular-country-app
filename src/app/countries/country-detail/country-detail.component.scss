@@ -1,13 +1,53 @@
+$bg-theme-black:hsl(207, 26%, 17%);
+
+$bg-theme-black-ligth:hsl(209, 23%, 22%);
+
+$bg-theme-white:  hsl(0, 0%, 100%);
+
+$txt-white:hsl(0, 0%, 100%);
+
+$bg-grey: hsl(0, 0%, 66%);
 .detail{
   display: flex;
   flex-direction: column;
-  margin-top: 4rem;
+  padding-top: 2rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  background-color: $bg-theme-black;
+  height: 100vh;
+  main{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .img{
+      height: 100%;
+    }
+    .descript{
+       color: $bg-grey;
+      h2{
+        margin-top: 0px;
+        margin-bottom: 2rem;
+        color: $txt-white;
+        }
+      span{
+        font-weight: bolder;
+        color: $txt-white;
+      }
+      .carctcountry{
+        display: flex;
+        justify-content: space-between;
+        column-gap: 4rem;
+        margin-bottom: 3rem
+      }
+    }
+  }
 }
-.buttonback{
+.bg-blue-ligth{
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 5rem;
+  max-width: 7rem;
+  padding: 5px 5px;
   background-color: $bg-theme-black-ligth;
   color: $txt-white;
   border-radius: 5px;
@@ -16,4 +56,16 @@
 }
 .dropdown{
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.payVoisin{
+  display: flex;
+ .border{
+   margin: 0rem 0.25rem;
+   padding: 3px 5px
+ }
+
+}
+.lang{
+  display: flex;
 }
