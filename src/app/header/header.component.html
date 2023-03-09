@@ -1,7 +1,7 @@
-<header class="dropdown" [ngClass]="storedTheme === 'theme-light'?'theme-white':''">
-  <h2>Where in the World?</h2>
-  <div>
-    <span class="material-icons">{{  mode  }}</span>
-    <span (click)="changeMode()">{{ txtMode }}</span>
-  </div>
+<header role="banner" class="dropdown" [ngClass]="storedTheme === 'theme-light'?'theme-white':''">
+    <h2>Where in the World?</h2>
+    <div>
+        <span class="material-icons">{{  mode  }}</span>
+        <span (click)="changeMode()">{{ txtMode }}</span>
+    </div>
 </header>

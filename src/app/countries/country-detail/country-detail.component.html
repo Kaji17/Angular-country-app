@@ -1,53 +1,62 @@
-<div class="detail">
-  <!-- Button de retour vers la liste des pays -->
-  <button type="button" (click)="backToList()" class="bg-blue-ligth dropdown">
-    <span class="material-icons">
-      keyboard_backspace
-    </span>
-    Back
-  </button>
-
-  <!-- Detail du pays  -->
-  <main>
-    <!-- Images du pays  -->
-    <div>
-      <img [src]="countries.flags.png" alt="image-{{countries.name.common}}" srcset="" class="img">
-    </div>
-
-    <!-- Info du pays  -->
-    <div class="descript">
-      <!-- Le nom commun du pays -->
-      <div class="title-name">
-        <h2>{{countries.name.common}}</h2>
-      </div>
-      <div class="carctcountry">
-        <div class="firstpart">
-          <p><span>Native Name: </span> {{countries.name.official}}</p>
-          <p><span>Population: </span> {{countries.population| number}}</p>
-          <p><span>Region: </span> {{countries.region}}</p>
-          <p><span>Sub Region: </span>{{countries.subregion}}</p>
-          <p><span>Capital: </span> {{countries.capital}}</p>
+<div class="detail" [ngClass]="storedTheme === 'theme-light'?'theme-light':''">
+    <!-- Detail du pays  -->
+    <main>
+        <!-- Images du pays  -->
+        <div class="content-img">
+            <!-- Button de retour vers la liste des pays -->
+            <button type="button" (click)="backToList()" class="bg-blue-ligth dropdown" [ngClass]="storedTheme === 'theme-light'?'theme-light':''" id="btn">
+                <span class="material-icons">
+                  keyboard_backspace
+                </span>
+                  Back
+            </button>
+            <img [src]="countries.flags.png" alt="image-{{countries.name.common}}" srcset="" class="img dropdown">
         </div>
-        <div class="secondpart">
-          <p><span>Top Level Domain: </span> {{countries.tld}}</p>
-          <p>
-            <span>Currencies: </span>
-            {{countryv2.currencies[0].name}}
-          </p>
-          <p class="lang">
-            <span>Languages: </span>
-            <div *ngFor="let i of countryv2.languages">
-              {{i.name}}
+
+        <!-- Info du pays  -->
+        <div class="descript">
+            <!-- Le nom commun du pays -->
+            <div class="title-name">
+                <h2>{{countries.name.common}}</h2>
+            </div>
+            <div class="carctcountry">
+                <div class="firstpart">
+                    <p><span>Native Name: </span> {{countries.name.official}}</p>
+                    <p><span>Population: </span> {{countries.population| number}}</p>
+                    <p><span>Region: </span> {{countries.region}}</p>
+                    <p><span>Sub Region: </span>{{countries.subregion}}</p>
+                    <p><span>Capital: </span> {{countries.capital}}</p>
+                </div>
+                <div class="secondpart">
+                    <p>
+                        <span>Top Level Domain: </span> {{countries.tld}}
+                    </p>
+                    <p>
+                        <span>Currencies: </span> {{countryv2.currencies[0].name}}
+                    </p>
+                    <div class="lang">
+                        <span>
+                          Languages: 
+                        </span>
+                        <div *ngFor="let i of countryv2.languages">
+                            {{i.name}}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="payVoisin">
+                <span>Border Country:</span>
+                <div style="
+                display: flex;
+                flex-wrap: wrap;
+            ">
+                    <div class="border bg-blue-ligth dropdown" *ngFor="let pays of countryv2.borders" [ngClass]="storedTheme === 'theme-light'?'theme-light':''">
+                        <!-- Renvoie le nom du pays en fonction du code alpha3 passer en paramètre -->
+                        {{getBorderCountry(pays)}}
+                    </div>
+                </div>
             </div>
         </div>
-      </div>
-      <div class="payVoisin">
-        <span>Border Country:</span>
-        <div class="border bg-blue-ligth dropdown" *ngFor="let pays of countryv2.borders">
-          <!-- Renvoie le nom du pays en fonction du code alpha3 passer en paramètre -->
-          {{getBorderCountry(pays)}}
-        </div>
-      </div>
-    </div>
-  </main>
+    </main>
 </div>

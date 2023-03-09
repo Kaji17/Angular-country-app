@@ -34,7 +34,7 @@ export class CountryListComponent implements OnInit {
         this.countryFilterList=this.countries // on affiche tout les pays
       }
     });
-    this.theme = localStorage.getItem('theme-color')!; 
+    this.theme = "theme-dark"; 
     this.countryFilter= "";
   }
 

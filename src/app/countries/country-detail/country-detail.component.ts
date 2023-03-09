@@ -21,6 +21,12 @@ export class CountryDetailComponent implements OnInit {
   // Liste complète des pays de la version 3 de l'API
   public countryListT!: any[]
 
+  //Le nom du theme de couleur choisit
+  public theme!: string;
+
+  // Le theme de couleur recuperer dans le localStorage
+  public storedTheme: string = this.countryList.getStoredTheme();
+
   constructor(
     private countryList: CountryListService, // Recuperation du services qui donne la liste des pays
     private route: ActivatedRoute,
@@ -39,7 +45,16 @@ export class CountryDetailComponent implements OnInit {
       this.countryv2 = countries.find(country1=> country1.alpha3Code === this.countries.cca3)!;
       console.log("payv2:",this.countryv2)
     });
-
+    this.theme = "theme-dark"; 
+    // this.theme = localStorage.getItem('theme-color')!; 
+    this.getsetthem()
+  }
+  //Recupération des du theme de la localStorage
+  getsetthem():void{
+    this.storedTheme= this.countryList.getStoredTheme();
+    setTimeout(() => {
+      this.getsetthem()
+    }, 1);
   }
 
   //Button pour revenir à la liste des pays

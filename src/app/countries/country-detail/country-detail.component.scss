@@ -1,71 +1,142 @@
-$bg-theme-black:hsl(207, 26%, 17%);
-
+$bg-theme-black :hsl(207, 26%, 17%);
 $bg-theme-black-ligth:hsl(209, 23%, 22%);
-
-$bg-theme-white:  hsl(0, 0%, 100%);
-
-$txt-white:hsl(0, 0%, 100%);
-
+$bg-theme-white: hsl(0, 0%, 98%);
+$txt-white :hsl(0, 0%, 100%);
 $bg-grey: hsl(0, 0%, 66%);
-.detail{
-  display: flex;
-  flex-direction: column;
-  padding-top: 2rem;
-  padding-left: 4rem;
-  padding-right: 4rem;
-  background-color: $bg-theme-black;
-  height: 100vh;
-  main{
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    .img{
-      height: 100%;
-    }
-    .descript{
-       color: $bg-grey;
-      h2{
-        margin-top: 0px;
-        margin-bottom: 2rem;
-        color: $txt-white;
-        }
-      span{
-        font-weight: bolder;
-        color: $txt-white;
-      }
-      .carctcountry{
+.detail {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    background-color: $bg-theme-black;
+    height: 100vh;
+    main {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
-        column-gap: 4rem;
-        margin-bottom: 3rem
-      }
+        .img {
+            width: 100%;
+            margin-top: 24px;
+        }
+        .descript {
+            color: $bg-grey;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            h2 {
+                margin-top: 0px;
+                margin-bottom: 2rem;
+                color: $txt-white;
+            }
+            span {
+                font-weight: bolder;
+                color: $txt-white;
+            }
+            .carctcountry {
+                display: flex;
+                justify-content: space-between;
+                column-gap: 4rem;
+                margin-bottom: 3rem
+            }
+        }
     }
-  }
-}
-.bg-blue-ligth{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 7rem;
-  padding: 5px 5px;
-  background-color: $bg-theme-black-ligth;
-  color: $txt-white;
-  border-radius: 5px;
-  border-width: 0px;
-
-}
-.dropdown{
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.payVoisin{
-  display: flex;
- .border{
-   margin: 0rem 0.25rem;
-   padding: 3px 5px
- }
-
+.detail.theme-light {
+    background-color: $bg-theme-white;
+    main {
+        .descript {
+            h2 {
+                color: $bg-theme-black;
+            }
+            span {
+                color: $bg-theme-black;
+            }
+        }
+    }
 }
-.lang{
-  display: flex;
+
+.bg-blue-ligth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 5px;
+    background-color: $bg-theme-black-ligth;
+    color: $txt-white;
+    border-radius: 5px;
+    border-width: 0px;
+    margin-bottom: 30px;
+    max-width: 9rem;
+}
+
+.bg-blue-ligth.theme-light {
+    background-color: $bg-theme-white;
+    color: $bg-theme-black;
+}
+
+.dropdown {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.payVoisin {
+    display: flex;
+    align-items: center;
+    .border {
+        margin: 0rem 0.25rem;
+        padding: 3px 5px
+    }
+}
+
+.lang {
+    display: flex;
+}
+
+.content-img {
+    width: 475px;
+    height: 100%;
+}
+
+@media screen and (max-width:1157px) {
+    .detail {
+        margin: 0px;
+        padding: 0px;
+        main {
+            flex-direction: column;
+            width: fit-content;
+            position: absolute;
+            top: 23%;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            .descript {
+                width: auto;
+                .carctcountry {
+                    flex-direction: column;
+                }
+                h2 {
+                    margin-top: 2rem;
+                }
+            }
+        }
+    }
+    .payVoisin {
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+    }
+}
+
+@media screen and (max-width:514px) {
+    .content-img {
+        width: 355px;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width:425px) {
+    .detail {
+        main {
+            top: 11%;
+        }
+    }
 }

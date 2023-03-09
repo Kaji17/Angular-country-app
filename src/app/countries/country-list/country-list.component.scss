@@ -191,9 +191,6 @@ $bg-grey: hsl(0, 0%, 98%);
 
 @media screen and (max-width:722px) {
   .main-content {
-    margin-left: 1rem;
-    margin-right: 1rem;
-
     &__searchFilter {
       flex-direction: column;
       row-gap: 2rem;
