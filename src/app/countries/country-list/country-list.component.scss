@@ -175,9 +175,10 @@ $bg-grey: hsl(0, 0%, 98%);
 }
 
 
-.main-content.theme-light{
+.main-content.theme-light {
   background-color: $bg-grey;
 }
+
 
 
 .countries-card.theme-light {
@@ -191,6 +192,8 @@ $bg-grey: hsl(0, 0%, 98%);
 
 @media screen and (max-width:722px) {
   .main-content {
+    padding-right: 1rem;
+    padding-left: 1rem;
     &__searchFilter {
       flex-direction: column;
       row-gap: 2rem;
@@ -220,5 +223,6 @@ $bg-grey: hsl(0, 0%, 98%);
         }
       }
     }
-  }
+
+ }
 }
