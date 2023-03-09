@@ -10,11 +10,13 @@ $bg-grey: hsl(0, 0%, 66%);
     padding-left: 4rem;
     padding-right: 4rem;
     background-color: $bg-theme-black;
+    align-items: center;
     height: 100vh;
     main {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        width: -webkit-fill-available;
         .img {
             width: 100%;
             margin-top: 24px;
@@ -99,15 +101,11 @@ $bg-grey: hsl(0, 0%, 66%);
 
 @media screen and (max-width:1157px) {
     .detail {
-        margin: 0px;
-        padding: 0px;
+        padding: 20px 0px;
+        height: auto;
         main {
             flex-direction: column;
-            width: fit-content;
-            position: absolute;
-            top: 23%;
-            left: 50%;
-            transform: translate(-50%, 0%);
+            width: auto;
             .descript {
                 width: auto;
                 .carctcountry {
@@ -133,10 +131,6 @@ $bg-grey: hsl(0, 0%, 66%);
     }
 }
 
-@media screen and (max-width:425px) {
-    .detail {
-        main {
-            top: 11%;
-        }
-    }
-}
+@media screen and (max-width:425px) {}
+
+@media screen and (max-width:425px) {}
